@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            {{title}}
+        </div>
+        <div *ngFor="let id of musicModel" class="container">
+            <div *ngFor = "let artist of id.artists" class="albumClass" class="card" style="width:400px;margin-left:10%;margin-top:4%;float:left">
+                <div class="card-body" class="relative">
+                    <img class="relative" src= "{{ artist.cover | ImagePath: 'cover' }}" align="center" class="card-img-top img-fluid" height="250" width="250" alt="Card image"/>
+                    <h4 class="card-title" align="center" >{{artist.name}}</h4>
+                    <div class="container" align="center" class="contain">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" [attr.data-target]="artist.cover | ImagePath: '#'" >
+                            View Albums
+                        </button>
+                        <!-- The Modal -->
+                        <div class="modal fade" id="{{artist.cover}}">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <strong>
+                                            <p style="max-width:400px;  word-wrap:break-word;" align="center" class="card-text">
+                                                {{artist.bio}}
+                                            </p>
+                                        </strong>
+                                    </div>
+                                    <!-- Modal body -->
+                                    <div class="modal-body" *ngFor = "let album of artist.albums" class="albumClass" class="col-sm-6" style="max-width:200px;float:left">
+                                        <img src= "{{ album.cover | ImagePath: 'album' }}" align="center" height=100 width=100/>
+                                        <h5 align="center">
+                                            {{album.title}}
+                                        </h5>
+                                        <br><br>
+                                    </div>
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer" align="center">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <br><br>
+        </div>
+        <br><br>
+    </div>
+</div>

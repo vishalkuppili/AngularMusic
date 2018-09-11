@@ -7,7 +7,7 @@ import { IProduct } from './product.model';
     templateUrl: './product.component.html',
     styleUrls: ['./product.component.css']
 })
-export class ProductComponent { 
+export class ProductComponent implements OnInit{ 
     title: String = 'A List of Products';
     showImage: boolean = false;
     imageWidth: Number = 180;

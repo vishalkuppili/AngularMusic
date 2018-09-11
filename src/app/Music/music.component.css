@@ -1,0 +1,13 @@
+.inlineClass {
+    display: inline-block;
+    width: 50%;
+}
+
+.contain{
+    overflow:hidden;
+}
+
+.relative {
+    display:inline-block;
+    vertical-align: middle;
+  }

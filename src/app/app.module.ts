@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser'; // Load module into the browser
+import { BrowserModule } from '@angular/platform-browser'; 
 import { FormsModule } from '@angular/forms'
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,6 +10,9 @@ import { OrderComponent } from './orders/order.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './shared/notfound.component';
 import { ProductModule } from './products/product.module';
+import { MusicComponent } from './Music/music.component';
+import { MusicService } from './Music/music.service';
+import { ImagePath } from './Music/imagePath.pipe';
 
 @NgModule({
   // All modules will be declared here
@@ -19,6 +22,7 @@ import { ProductModule } from './products/product.module';
     HttpModule,
     HttpClientModule,
     RouterModule.forRoot([
+      {path: 'music', component: MusicComponent},
       {path: 'order', component: OrderComponent},
       {path: 'home', component: HomeComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -32,7 +36,9 @@ import { ProductModule } from './products/product.module';
     AppComponent,
     OrderComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    MusicComponent,
+    ImagePath
   ],
 
   bootstrap: [
@@ -40,6 +46,7 @@ import { ProductModule } from './products/product.module';
   ],
 
   providers: [
+    MusicService
   ]
 })
 export class AppModule { }
